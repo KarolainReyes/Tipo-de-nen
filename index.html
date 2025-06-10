@@ -1,11 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>¿Cual es tu tipo de Nen? - Encuesta HxH</title>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>¿Cuál es tu tipo de Nen?</h1>
+        <p>Elige la opción que mejor te describa en cada pregunta. ¡Sé honesto!</p>
+            <form id="nenQuizForm"> 
+            <div class="question-block">
+                <p><strong>1. Cuando enfrentas un desafío importante, ¿cuál es tu primera reacción?</strong></p>
+                <label><input type="radio" name="q1" value="Potenciador" required> Me enfoco en mis habilidades y me esfuerzo al máximo para superarlo directamente.</label><br>
+                <label><input type="radio" name="q1" value="Transformador"> Pienso en cómo puedo adaptar lo que ya sé para encontrar una solución creativa.</label><br>
+                <label><input type="radio" name="q1" value="Manipulador"> Intento controlar las variables y las personas involucradas para guiar el resultado.</label><br>
+                <label><input type="radio" name="q1" value="Conjurador"> Busco crear algo específico o un plan tangible para resolver el problema.</label><br>
+                <label><input type="radio" name="q1" value="Emisor"> Prefiero atacar el problema desde la distancia o encontrar una solución que no requiera mi presencia directa.</label><br>
+                <label><input type="radio" name="q1" value="Especialista"> Siento que tengo una forma única de ver las cosas y mi solución será diferente a la de los demás.</label><br>
+            </div>
+
+            <div class="question-block">
+                <p><strong>2. ¿Qué tipo de habilidad te gustaría más tener en una situación de peligro?</strong></p>
+                <label><input type="radio" name="q2" value="Potenciador" required> Una fuerza física inmensa o una resistencia increíble.</label><br>
+                <label><input type="radio" name="q2" value="Transformador"> La capacidad de cambiar mis características o las de mis ataques (ej. hacerlos elásticos, pegajosos, eléctricos).</label><br>
+                <label><input type="radio" name="q2" value="Manipulador"> Controlar la mente o las acciones de mis oponentes.</label><br>
+                <label><input type="radio" name="q2" value="Conjurador"> Invocar objetos o herramientas que me den una ventaja específica.</label><br>
+                <label><input type="radio" name="q2" value="Emisor"> Lanzar poderosos proyectiles de energía o teletransportarme rápidamente.</label><br>
+                <label><input type="radio" name="q2" value="Especialista"> Una habilidad completamente única y sorprendente que nadie esperaría.</label><br>
+            </div>
+
+            <div class="question-block">
+                <p><strong>3. ¿Cómo prefieres abordar un proyecto o tarea?</strong></p>
+                <label><input type="radio" name="q3" value="Potenciador" required> De forma directa y sencilla, poniendo todo mi esfuerzo en la ejecución.</label><br>
+                <label><input type="radio" name="q3" value="Transformador"> Buscando formas ingeniosas y poco convencionales de hacerlo, añadiendo mi toque personal.</label><br>
+                <label><input type="radio" name="q3" value="Manipulador"> Organizando a las personas y los recursos para que todo funcione según mis planes.</label><br>
+                <label><input type="radio" name="q3" value="Conjurador"> Creando un plan detallado y estructurado, visualizando el resultado final antes de empezar.</label><br>
+                <label><input type="radio" name="q3" value="Emisor"> Prefiero delegar o coordinar desde lejos, o enfocarme en los resultados a gran escala.</label><br>
+                <label><input type="radio" name="q3" value="Especialista"> Con una perspectiva innovadora y poco convencional, desafiando las normas.</label><br>
+            </div>
+
+            <div class="question-block">
+                <p><strong>4. ¿Qué te describe mejor en tus relaciones personales?</strong></p>
+                <label><input type="radio" name="q4" value="Potenciador" required> Soy honesto, directo y leal. A veces un poco impulsivo.</label><br>
+                <label><input type="radio" name="q4" value="Transformador"> Soy un poco caprichoso, a veces miento o bromeo, pero soy adaptable.</label><br>
+                <label><input type="radio" name="q4" value="Manipulador"> Me gusta tener el control de las situaciones y de los que me rodean, soy persuasivo.</label><br>
+                <label><input type="radio" name="q4" value="Conjurador"> Soy responsable y un poco nervioso, valoro la seriedad en los compromisos.</label><br>
+                <label><input type="radio" name="q4" value="Emisor"> Soy impaciente y a veces me frustro fácilmente, pero soy muy sociable y me gusta ayudar a la gente.</label><br>
+                <label><input type="radio" name="q4" value="Especialista"> Soy un poco excéntrico, carismático, y tiendo a hacer las cosas a mi manera.</label><br>
+            </div>
+
+            <div class="question-block">
+                <p><strong>5. Si pudieras mejorar una cualidad tuya, ¿cuál sería?</strong></p>
+                <label><input type="radio" name="q5" value="Potenciador" required> Mi resistencia física o mi capacidad de recuperación.</label><br>
+                <label><input type="radio" name="q5" value="Transformador"> Mi ingenio o mi capacidad para innovar.</label><br>
+                <label><input type="radio" name="q5" value="Manipulador"> Mi capacidad de influencia o de control.</label><br>
+                <label><input type="radio" name="q5" value="Conjurador"> Mi habilidad para materializar ideas o para ser más concreto.</label><br>
+                <label><input type="radio" name="q5" value="Emisor"> Mi capacidad de comunicación o de proyectar mi voluntad a distancia.</label><br>
+                <label><input type="radio" name="q5" value="Especialista"> Mi singularidad o mi capacidad para pensar "fuera de la caja".</label><br>
+            </div>
+
+            <button type="submit">¡Descubre tu tipo de Nen!</button>
+        </form>
+
+        <div id="result" class="result-block">
+            </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
