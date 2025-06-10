@@ -29,3 +29,71 @@ document.addEventListener('DOMContentLoaded', () => {
             description: "Eres único e individualista. Tu Nen no encaja en ninguna de las otras categorías y a menudo involucra habilidades muy específicas, sorprendentes y poderosas, a menudo con condiciones únicas. Eres como Chrollo Lucilfer o un Kurapika en Emperor Time, con un camino propio."
         }
     };
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Evita que la página se recargue
+
+        const formData = new FormData(form);
+        const nenCounts = {
+            "Potenciador": 0,
+            "Transformador": 0,
+            "Manipulador": 0,
+            "Conjurador": 0,
+            "Emisor": 0,
+            "Especialista": 0
+        };
+
+        // Recorre las respuestas y cuenta los votos para cada tipo de Nen
+        for (let [name, value] of formData.entries()) {
+            if (nenCounts.hasOwnProperty(value)) { // Verifica si el valor es un tipo de Nen válido
+                nenCounts[value]++;
+            }
+        }
+
+        // Encuentra el tipo de Nen con la puntuación más alta
+        let highestCount = 0;
+        let nenTypeResult = '';
+        let possibleTypes = []; // Para manejar empates
+
+        for (const type in nenCounts) {
+            if (nenCounts[type] > highestCount) {
+                highestCount = nenCounts[type];
+                nenTypeResult = type;
+                possibleTypes = [type]; // Reinicia si encontramos uno nuevo más alto
+            } else if (nenCounts[type] === highestCount && highestCount > 0) {
+                // Si hay un empate con el valor más alto actual, añade al tipo
+                possibleTypes.push(type);
+            }
+        }
+
+        let resultTitle = '';
+        let resultDescription = '';
+
+        if (possibleTypes.length === 1) {
+            // Un claro ganador
+            const data = nenDescriptions[nenTypeResult];
+            resultTitle = data.title;
+            resultDescription = data.description;
+        } else if (possibleTypes.length > 1) {
+            // Hay un empate
+            resultTitle = "¡Tu tipo de Nen es complejo! 🌀";
+            resultDescription = `Parece que tus características se alinean con varios tipos de Nen. Podrías ser una mezcla de: ${possibleTypes.join(' y ')}. Esto te da una gran versatilidad.`;
+            // Si quieres puedes añadir la descripción del tipo dominante si hubo uno con más de 0 votos
+            if (highestCount > 0) {
+                resultDescription += `<br><br>Sin embargo, los rasgos de ${possibleTypes.join(' y ')} son los más prominentes en ti.`;
+            }
+        } else {
+            // En caso de que no se seleccione nada (aunque el 'required' lo evitaría)
+            resultTitle = "Por favor, completa todas las preguntas.";
+            resultDescription = "Necesitamos tus respuestas para determinar tu tipo de Nen.";
+        }
+
+
+        // Muestra el resultado en la página
+        resultDiv.innerHTML = `<h2>${resultTitle}</h2><p>${resultDescription}</p>`;
+        resultDiv.style.display = 'block'; // Hace visible el bloque de resultados
+
+        // Opcional: Desplazarse al resultado
+        resultDiv.scrollIntoView({ behavior: 'smooth' });
+    });
+});
